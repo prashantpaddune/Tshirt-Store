@@ -2,11 +2,12 @@ require('dotenv').config()
 
 const express = require('express');
 const mongoose = require('mongoose');
-var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
-var cors = require('cors');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
 const app = express();
-const port = process.env.PORT || 3000;
+
+const authRoute = require('./routes/authentication');
 
 mongoose
     .connect("mongodb://localhost:27017/tshirts", { 
@@ -18,13 +19,15 @@ mongoose
         console.log("DB CONNECTS SUCCESSFULLY");
     })
     .catch((error) => {
-        console.error("DB GOT CRASH")
+        console.error("DB GOT CRASH");
     });
 
     app.use(bodyParser.json());
     app.use(cookieParser());
     app.use(cors());
 
-app.get('/', (req, res) => res.send('Hello World!'));
+    app.use("/api", authRoute);
+
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => console.log(`App listening on port ${port}!`));
