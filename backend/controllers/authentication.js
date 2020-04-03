@@ -41,13 +41,13 @@ exports.signIn = (req, res) => {
     };
 
     User.findOne({email}, (err, user)=> {
-        if(err){
+        if(err | !user){
             return res.status(400).json({
                 err : 'Email does not exist'
             });
         };
 
-        if(!user.authenticate(plainpassword)){
+        if(!user.authenticate(password)){
             res.status(401).json({
                 err : 'Email and Password does not match'
             });
