@@ -7,7 +7,9 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const app = express();
 
+// Routes
 const authRoute = require('./routes/authentication');
+const userRoute = require('./routes/user');
 
 mongoose
     .connect("mongodb://localhost:27017/tshirts", { 
@@ -22,11 +24,14 @@ mongoose
         console.error("DB GOT CRASH");
     });
 
+    // Middlewares used
     app.use(bodyParser.json());
     app.use(cookieParser());
     app.use(cors());
 
-    app.use("/api", authRoute);
+    // Routes used
+    app.use('/api', authRoute);
+    app.use('/api', userRoute);
 
 const port = process.env.PORT || 3000;
 
