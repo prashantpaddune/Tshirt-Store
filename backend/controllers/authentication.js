@@ -70,7 +70,7 @@ exports.signIn = (req, res) => {
 };
 
 exports.signOut = (req, res) => {
-    res.res.clearCookie('token');
+    res.clearCookie('token');
     res.json({
         message: 'User SignOut Sucessfully'
     });
