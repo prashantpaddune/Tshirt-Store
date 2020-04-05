@@ -5,6 +5,6 @@ const { isSignedIn, isAuthenticated, isAdmin} = require('../controllers/authenti
 
 router.param('userId', getUserById);
 
-router.get('/user/:userId', isSignedIn, isAuthenticated, getUser);
+router.get('/user/:userId', isSignedIn, getUser);
 
 module.exports = router;
