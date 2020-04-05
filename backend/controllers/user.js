@@ -1,23 +1,23 @@
 const User = require('../models/user');
 
 exports.getUserById = (req, res, next, id) => {
-    User.findById(id).exec((err, user)=> {
+    User.findById(id).exec((err, user) => {
         if(err || !user){
             return res.status(400).json({
                 err : 'No User Found in DB'
             });
         };
-        res.profile = user;
+        req.profile = user;
         next();
     });
 };
 
 exports.getUser = (req, res) => {
-    res.profile.salt = undefined;
-    res.profile.encry_password = undefined;
-    res.profile.createdAt = undefined;
-    res.profile.updatedAt = undefined;
-    return res.json(res.profile);
+    req.profile.salt = undefined;
+    req.profile.encry_password = undefined;
+    req.profile.createdAt = undefined;
+    req.profile.updatedAt = undefined;
+    return res.json(req.profile);
 }
 
 exports.getAllUsers = (req, res) => {
@@ -33,7 +33,7 @@ exports.getAllUsers = (req, res) => {
 
 exports.updateUser = (req, res) => {
     User.findByIdAndUpdate(
-        {_id: res.profile._id},
+        {_id: req.profile._id},
         {$set: req.body},
         {new: true, useFindAndModify: false},
         (err, user) => {
