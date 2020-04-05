@@ -27,6 +27,6 @@ exports.getAllUsers = (req, res) => {
                 error: 'No Users Found'
             });
         }
-        res.json(users)
+        res.json(users);
     })
 }
