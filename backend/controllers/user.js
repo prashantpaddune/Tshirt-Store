@@ -28,5 +28,25 @@ exports.getAllUsers = (req, res) => {
             });
         }
         res.json(users);
-    })
-}
+    });
+};
+
+exports.updateUser = (req, res) => {
+    User.findByIdAndUpdate(
+        {_id: res.profile._id},
+        {$set: req.body},
+        {new: true, useFindAndModify: false},
+        (err, user) => {
+            if(err) {
+                return res.status(400).json({
+                    error: 'You are not authorised too update the information'
+                });
+            }
+            user.salt = undefined;
+            user.encry_password = undefined;
+            user.createdAt = undefined;
+            user.updatedAt = undefined;
+            res.json(user);
+        }
+    );
+};

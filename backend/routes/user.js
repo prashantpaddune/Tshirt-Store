@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const { getUserById, getUser } = require('../controllers/user');
+const { getUserById, getUser, updateUser } = require('../controllers/user');
 const { isSignedIn, isAuthenticated, isAdmin} = require('../controllers/authentication');
 
 router.param('userId', getUserById);
 
-router.get('/user/:userId', isSignedIn, getUser);
+router.get('/user/:userId', isSignedIn, getUser); // todo isAuthenticated
 
+router.put('/user/:userId', isSignedIn, updateUser) // todo isAuthenticated
 module.exports = router;
