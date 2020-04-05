@@ -13,5 +13,9 @@ exports.getUserById = (req, res, next, id) => {
 };
 
 exports.getUser = (req, res) => {
+    res.profile.salt = undefined;
+    res.profile.encry_password = undefined;
+    res.profile.createdAt = undefined;
+    res.profile.updatedAt = undefined;
     return res.json(res.profile);
 }
