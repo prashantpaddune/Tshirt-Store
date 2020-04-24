@@ -14,16 +14,16 @@ const categoryRoute = require('./routes/category');
 const productRoute = require('./routes/product');
 
 mongoose
-    .connect("mongodb://localhost:27017/tshirts", { 
+    .connect('mongodb://localhost:27017/tshirts', { 
         useNewUrlParser: true, 
         useUnifiedTopology: true,
         useCreateIndex: true
     })
     .then(() => {
-        console.log("DB CONNECTS SUCCESSFULLY");
+        console.log('DB CONNECTS SUCCESSFULLY');
     })
     .catch((error) => {
-        console.error("DB GOT CRASH");
+        console.error('DB GOT CRASH');
     });
 
     // Middlewares used
