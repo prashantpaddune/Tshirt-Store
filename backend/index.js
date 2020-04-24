@@ -11,6 +11,7 @@ const app = express();
 const authRoute = require('./routes/authentication');
 const userRoute = require('./routes/user');
 const categoryRoute = require('./routes/category');
+const productRoute = require('./routes/product');
 
 mongoose
     .connect("mongodb://localhost:27017/tshirts", { 
@@ -34,6 +35,7 @@ mongoose
     app.use('/api', authRoute);
     app.use('/api', userRoute);
     app.use('/api', categoryRoute);
+    app.use('/api', productRoute);
 
 const port = process.env.PORT || 3000;
 
