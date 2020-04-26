@@ -19,7 +19,7 @@ exports.signUp = (req, res) => {
             return res.status(400).json({
                 err : 'Failed to Save User in DB!'
             });
-        };
+        }
         res.json({
             id: user._id,
             name: user.name,
@@ -38,20 +38,20 @@ exports.signIn = (req, res) => {
         return res.status(422).json({ 
             errors: errors.array()[0].msg
         });
-    };
+    }
 
     User.findOne({email}, (err, user)=> {
-        if(err | !user){
+        if(err || !user){
             return res.status(400).json({
                 err : 'Email does not exist'
             });
-        };
+        }
 
         if(!user.authenticate(password)){
             res.status(401).json({
                 err : 'Email and Password does not match'
             });
-        };
+        }
 
         // Create token
         const token = jwt.sign({ _id: user._id }, process.env.SECRET);
@@ -90,7 +90,7 @@ exports.isAuthenticated = (req, res, next) => {
         return res.status(403).json({
             error: 'ACCESS DENIED'
         });
-    };
+    }
     next();
 };
 
@@ -99,6 +99,6 @@ exports.isAdmin = (req, res, next) => {
         return res.status(403).json({
             error: 'ACCESS DENIED, YOU ARE NOT ADMIN'
         });
-    };
+    }
     next();
 };

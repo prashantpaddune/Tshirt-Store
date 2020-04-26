@@ -7,7 +7,7 @@ exports.getUserById = (req, res, next, id) => {
             return res.status(400).json({
                 err : 'No User Found in DB'
             });
-        };
+        }
         req.profile = user;
         next();
     });
@@ -60,7 +60,7 @@ exports.userPurchasedList = (req, res) => {
             return res.status(400).json({
                 error: 'No Order in this Account'
             });
-        };
+        }
         return res.json(order);
     });
 };
@@ -88,7 +88,7 @@ exports.pushOrderInPurchaseList = (req, res, next) => {
                 return res.status(400).json({
                     error: 'Unable to save purchase list'
                 });
-            };
+            }
             next();
         }
     );

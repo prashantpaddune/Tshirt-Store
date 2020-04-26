@@ -6,7 +6,7 @@ exports.getCategoryById = (req, res, next, id) => {
             return res.status(400).json({
                 error: 'Category not found in DB'
             });
-        };
+        }
         req.category = cate;
         next();
     });
@@ -19,7 +19,7 @@ exports.createCategory = (req, res) => {
             return res.status(400).json({
                 error: 'Failed to save category in DB'
             });
-        };
+        }
         res.json({ category });
     });
 };
@@ -48,7 +48,7 @@ exports.updateCategory = (req, res) => {
             return res.status(400).json({
                 error: 'Failed to update Category'
             });
-        };
+        }
         res.json(updatedCategory);
     })
 }
@@ -61,7 +61,7 @@ exports.removeCategory = (req, res) => {
             return res.status(400).json({
                 error: 'Failed to delete category'
             });
-        };
+        }
         res.json({
             messege: 'Successfully Deleted'
         });
