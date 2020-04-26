@@ -2,12 +2,14 @@ import React from "react";
 import { API } from "../backend";
 import Base from "./Base";
 
-export default function Home() {
+const Home = () => {
     console.log("Api is", API);
 
     return(
-        <Base>
-            <hi className="text-white">Hello</hi>
+        <Base title="Tshirt Store" description="Welcome to Tshirt Store">
+            <h1 className="text-white">Welcome</h1>
         </Base>
     )
 }
+
+export default Home;

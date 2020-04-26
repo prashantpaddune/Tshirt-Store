@@ -7,7 +7,7 @@ const Footer = () => {
             <footer className="page-footer font-small pt-4 text-white bg-success">
                 <div className="container-fluid text-center text-md-left">
                     <div className="row">
-                        <div className="col-md-6 mt-md-0 mt-3">
+                        <div className="col-md-6 mt-md-0 mt-3 ml-2">
                             <h5 className="text-uppercase font-weight-bold">Tshirt Store</h5>
                             <p className="text-dark">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
