@@ -27,13 +27,13 @@ const Menu = ({ history }) => {
                     <Link style={currentTab(history, "/admin/dashboard")} className="nav-link" to="/admin/dashboard">A. Dashboard</Link>
                 </li>
                 <li className="nav-item">
-                    <Link style={currentTab(history, "/signUp")} className="nav-link" to="/signUp">Sign Up</Link>
+                    <Link style={currentTab(history, "/signup")} className="nav-link" to="/signup">Sign Up</Link>
                 </li>
                 <li className="nav-item">
-                    <Link style={currentTab(history, "/signIn")} className="nav-link" to="/signIn">Sign In</Link>
+                    <Link style={currentTab(history, "/signin")} className="nav-link" to="/signin">Sign In</Link>
                 </li>
                 <li className="nav-item">
-                    <Link style={currentTab(history, "/signOut")} className="nav-link" to="/signOut">Sign Out</Link>
+                    <Link style={currentTab(history, "/signout")} className="nav-link" to="/signout">Sign Out</Link>
                 </li>
             </ul>
         </div>
