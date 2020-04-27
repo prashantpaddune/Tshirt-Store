@@ -40,6 +40,24 @@ const Signup = () => {
             .catch(console.log("Error in Sign Up"))
     }
 
+    const successMessage = () => {
+        return(
+            <div className="col-md-6 offset-sm-3 text-left mb-2">
+                <div className="alert alert-success" role="alert" style={{display: success ? "" : "none"}}>
+                    New Account Created ! <Link to="/signin">Login Here</Link>
+                </div>
+            </div>
+        )
+    }
+
+    const errorMessage = () => {
+        return(
+            <div className="alert alert-danger" role="alert" style={{display: error ? "" : "none"}}>
+                {error}
+            </div>
+        )
+    }
+
     const signUpForm = () => {
         return(
             <form>
@@ -61,24 +79,6 @@ const Signup = () => {
                     </div>
                 </div>
             </form>
-        )
-    }
-
-    const successMessage = () => {
-        return(
-            <div className="col-md-6 offset-sm-3 text-left mb-2">
-                <div className="alert alert-success" role="alert" style={{display: success ? "" : "none"}}>
-                    New Account Created ! <Link to="/signin">Login Here</Link>
-                </div>
-            </div>
-        )
-    }
-
-    const errorMessage = () => {
-        return(
-            <div className="alert alert-danger" role="alert" style={{display: error ? "" : "none"}}>
-                {error}
-            </div>
         )
     }
 
