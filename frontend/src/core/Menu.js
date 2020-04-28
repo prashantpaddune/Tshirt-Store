@@ -12,8 +12,12 @@ const currentTab = (history, path) => {
 
 const Menu = ({ history }) => {
     return(
-    <nav className="navbar navbar-expand navbar-dark bg-secondary">
-        <div className="collapse navbar-collapse" id="navbarNav">
+        <nav className="navbar navbar-expand-md bg-secondary navbar-dark">
+            <Link to="/" className="navbar-brand">Tshirt Store</Link>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="collapsibleNavbar">
             <ul className="navbar-nav">
                 <li className="nav-item">
                     <Link style={currentTab(history, "/")} className="nav-link active" to="/">Home</Link>

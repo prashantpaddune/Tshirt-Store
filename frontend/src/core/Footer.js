@@ -1,5 +1,7 @@
-import React from "react";
+import React, {Fragment} from "react";
 import {Link, withRouter} from "react-router-dom";
+import "../styles.css"
+import {isAuthenticated} from "../auth/helper";
 
 const Footer = () => {
     return(
@@ -26,12 +28,26 @@ const Footer = () => {
                                 <li>
                                     <Link className="text-dark" to="/">Cart</Link>
                                 </li>
+                                {isAuthenticated() && isAuthenticated().user.role === 0 && (
                                 <li>
-                                    <Link className="text-dark" to="/">Dashboard</Link>
+                                    <Link className="text-dark" to="/user/dashboard">Dashboard</Link>
                                 </li>
+                                ) }
+                                {isAuthenticated() && isAuthenticated().user.role === 1 && (
                                 <li>
-                                    <Link className="text-dark" to="/">Sign In</Link>
+                                    <Link className="text-dark" to="/admin/dashboard">A. Dashboard</Link>
                                 </li>
+                                ) }
+                                {!isAuthenticated() && (
+                                    <Fragment>
+                                        <li>
+                                            <Link className="text-dark" to="/signin">Login</Link>
+                                        </li>
+                                        <li>
+                                            <Link className="text-dark" to="/signup">Register</Link>
+                                        </li>
+                                    </Fragment>
+                                )}
                             </ul>
                         </div>
                         </div>

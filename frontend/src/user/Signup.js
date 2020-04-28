@@ -65,7 +65,7 @@ const Signup = () => {
                     <div className="col-md-6 offset-sm-3 text-left mb-5">
                         <div className="form-group">
                             <label>Name</label>
-                            <input onChange={onhandleChange("name")} type="name" className="form-control" placeholder="Enter Name" value={name} />
+                            <input onChange={onhandleChange("name")} type="name" className="form-control" placeholder="Enter name" value={name} />
                         </div>
                         <div className="form-group">
                             <label>Email address</label>
