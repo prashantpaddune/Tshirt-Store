@@ -23,13 +23,13 @@ const AddCategory = () => {
 
     const successMessage = () => {
         if (success) {
-            return <h4 className="text-success"> Category created successfully</h4>
+            return <h4 className="text-success text-center"> Category created successfully</h4>
         }
     }
 
     const errorMessage = () => {
         if (error) {
-            return <h4 className="text-success"> Failed</h4>
+            return <h4 className="text-danger text-center"> Failed to create category</h4>
         }
     }
 
