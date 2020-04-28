@@ -5,7 +5,6 @@ import {isAuthenticated} from "../auth/helper";
 
 const Footer = () => {
     return(
-        <div className="text-white">
             <footer className="page-footer font-small pt-4 text-white bg-success">
                 <div className="container-fluid text-center text-md-left">
                     <div className="row">
@@ -53,10 +52,6 @@ const Footer = () => {
                         </div>
                     </div>
             </footer>
-            <div className="footer-copyright text-center py-3">© 2020 Copyright:
-                <a href="https://google.com"> Prashant Paddune</a>
-            </div>
-        </div>
     )
 };
 

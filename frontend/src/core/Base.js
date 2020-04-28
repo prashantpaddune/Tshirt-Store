@@ -18,7 +18,10 @@ const Base = ({
                 </div>
             </div>
             <div className={className}>{children}</div>
-            <Footer />
+            {/*<Footer />*/}
+            <div className="footer-copyright text-center py-3 text-white    ">© 2020 Copyright:
+                <a href="https://google.com"> Prashant Paddune</a>
+            </div>
         </div>
     )
 }
