@@ -21,19 +21,23 @@ const Menu = ({ history }) => {
                 <li className="nav-item">
                     <Link style={currentTab(history, "/cart")} className="nav-link" to="/cart">Cart</Link>
                 </li>
-                <li className="nav-item">
-                    <Link style={currentTab(history, "/user/dashboard")} className="nav-link" to="/user/dashboard">Dashboard</Link>
-                </li>
+                {isAuthenticated() && isAuthenticated().user.role === 0 && (
+                    <li className="nav-item">
+                        <Link style={currentTab(history, "/user/dashboard")} className="nav-link" to="/user/dashboard">Dashboard</Link>
+                    </li>
+                ) }
+                {isAuthenticated() && isAuthenticated().user.role === 1 && (
                 <li className="nav-item">
                     <Link style={currentTab(history, "/admin/dashboard")} className="nav-link" to="/admin/dashboard">A. Dashboard</Link>
                 </li>
+                )}
                 {!isAuthenticated() && (
                 <Fragment>
                 <li className="nav-item">
-                    <Link style={currentTab(history, "/signup")} className="nav-link" to="/signup">Sign Up</Link>
+                    <Link style={currentTab(history, "/signup")} className="nav-link" to="/signup">Register</Link>
                 </li>
                 <li className="nav-item">
-                    <Link style={currentTab(history, "/signin")} className="nav-link" to="/signin">Sign In</Link>
+                    <Link style={currentTab(history, "/signin")} className="nav-link" to="/signin">Login</Link>
                 </li>
                 </Fragment>
                 )}
@@ -43,7 +47,7 @@ const Menu = ({ history }) => {
                             signout(() => {
                                 history.push("/");
                             });
-                        }}>Signout
+                        }}>Logout
                         </span>
                     </li>
                 )}

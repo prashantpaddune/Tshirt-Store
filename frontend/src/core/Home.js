@@ -7,7 +7,7 @@ const Home = () => {
 
     return(
         <Base title="Tshirt Store" description="Welcome to Tshirt Store">
-            <h1 className="text-white">Welcome</h1>
+            <h1 className="text-white text-center">Welcome</h1>
         </Base>
     )
 }

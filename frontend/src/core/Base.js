@@ -13,7 +13,7 @@ const Base = ({
             <Menu />
             <div className="container-fluid">
                 <div className="bg-dark text-white text-center mt-5">
-                    <h2 className="display-4">{title}</h2>
+                    <h2 className="display-4 font-weight-bold">{title}</h2>
                     <p className="lead">{description}</p>
                 </div>
             </div>
