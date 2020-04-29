@@ -40,10 +40,10 @@ export const getCategory = categoryId => {
 
 //update a category call
 export const updateCategory = (categoryId, userId, token, category) => {
-    return fetch(`${API}/category/${categoryId}/${userId}`, {
+    return fetch(`${API}/category/${categoryId}/${userId}`,  {
         method: "PUT",
         headers: {
-            Accept: "application/json",
+            "Content-Type": "application/json",
             Authorization: `Bearer ${token}`
         },
         body: category
