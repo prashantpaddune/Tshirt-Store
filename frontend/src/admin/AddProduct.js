@@ -101,7 +101,7 @@ const AddProduct = () => {
         <form >
             <span>Post photo</span>
             <div className="form-group">
-                <label className="btn btn-block btn-success">
+                <label className="btn btn-block btn-primary">
                     <input
                         onChange={onhandleChange("photo")}
                         type="file"
