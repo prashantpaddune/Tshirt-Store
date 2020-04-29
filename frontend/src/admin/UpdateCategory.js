@@ -17,9 +17,7 @@ const UpdateCategory = ({match}) => {
             if (data.error) {
                 setName({...name, error: data.error});
             } else {
-                setName({
-                    ...name,
-                });
+                setName(data.name);
             }
         });
     };
@@ -59,7 +57,7 @@ const UpdateCategory = ({match}) => {
         setError("");
         setSuccess(false);
 
-        updateCategory(match.params.categoryId ,user._id, token, {name})
+        updateCategory(match.params.categoryId ,user._id, token, name)
             .then(data => {
                 if (data.error) {
                     setError(true)
