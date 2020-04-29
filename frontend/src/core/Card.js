@@ -1,58 +1,74 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ImageHelper from "./helper/ImageHelper";
+import { Redirect } from "react-router-dom";
+import { addItemToCart, removeItemFromCart } from "./helper/cartHelper";
 
 const Card = ({
-    product,
-    addtoCart = true,
-    removeCart = false,
-  }) => {
+                  product,
+                  addtoCart = true,
+                  removeFromCart = false,
+                  setReload = f => f,
+                  //   function(f){return f}
+                  reload = undefined
+              }) => {
+    const [redirect, setRedirect] = useState(false);
+    const [count, setCount] = useState(product.count);
 
-    const cardTitle = product ? product.name : "Default title"
-    const cardDescription = product ? product.description : "Default Description"
-    const cardPrice = product ? product.price : "Default Price"
+    const cartTitle = product ? product.name : "A photo from pexels";
+    const cartDescrption = product ? product.description : "Default description";
+    const cartPrice = product ? product.price : "DEFAULT";
 
-    const showAddtoCart = (addtoCart) => {
-        return(
+    const addToCart = () => {
+        addItemToCart(product, () => setRedirect(true));
+    };
+
+    const getARedirect = redirect => {
+        if (redirect) {
+            return <Redirect to="/cart" />;
+        }
+    };
+
+    const showAddToCart = addtoCart => {
+        return (
             addtoCart && (
-                <div className="col-12">
-                    <button
-                        onClick={() => {}}
-                        className="btn btn-block btn-outline-success mt-2 mb-2"
-                    >
-                        Add to Cart
-                    </button>
-                </div>
+                <button
+                    onClick={addToCart}
+                    className="btn btn-block btn-outline-success mt-2 mb-2"
+                >
+                    Add to Cart
+                </button>
             )
-        )
-    }
+        );
+    };
 
-    const showRemoveCart = (removeCart) => {
-        return(
-            removeCart && (
-                <div className="col-12">
-                    <button
-                        onClick={() => {}}
-                        className="btn btn-block btn-outline-danger mt-2 mb-2"
-                    >
-                        Remove from cart
-                    </button>
-                </div>
+    const showRemoveFromCart = removeFromCart => {
+        return (
+            removeFromCart && (
+                <button
+                    onClick={() => {
+                        removeItemFromCart(product._id);
+                        setReload(!reload);
+                    }}
+                    className="btn btn-block btn-outline-danger mt-2 mb-2"
+                >
+                    Remove from cart
+                </button>
             )
-        )
-    }
-
+        );
+    };
     return (
         <div className="card text-white bg-dark border border-info text-center">
-            <div className="card-header lead">{cardTitle}</div>
+            <div className="card-header lead">{cartTitle}</div>
             <div className="card-body">
-                <ImageHelper product={product}/>
+                {getARedirect(redirect)}
+                <ImageHelper product={product} />
                 <p className="lead bg-success font-weight-normal text-wrap">
-                    {cardDescription}
+                    {cartDescrption}
                 </p>
-                <p className="btn btn-success rounded  btn-sm px-4">$ {cardPrice}</p>
+                <p className="btn btn-success rounded  btn-sm px-4">$ {cartPrice}</p>
                 <div className="row">
-                    {showAddtoCart(addtoCart)}
-                    {showRemoveCart(removeCart)}
+                    <div className="col-12">{showAddToCart(addtoCart)}</div>
+                    <div className="col-12">{showRemoveFromCart(removeFromCart)}</div>
                 </div>
             </div>
         </div>
