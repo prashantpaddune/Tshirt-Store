@@ -75,7 +75,7 @@ const Signup = () => {
                             <label>Password</label>
                             <input onChange={onhandleChange("password")} type="password" className="form-control" placeholder="Password" value={password} />
                         </div>
-                        <button onClick={onSubmit} type="submit" className="btn btn-success">Submit</button>
+                        <button onClick={onSubmit} type="submit" className="btn btn-primary">Submit</button>
                     </div>
                 </div>
             </form>

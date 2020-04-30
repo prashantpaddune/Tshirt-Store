@@ -5,5 +5,9 @@ body {
 }
 
 #sticky-footer {
-    flex-shrink: none;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
 }

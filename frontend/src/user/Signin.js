@@ -81,13 +81,13 @@ const Signin = () => {
                         <div className="form-group">
                             <label>Email address</label>
                             <input onChange={onhandleChange("email")} value={email} type="email" className="form-control" placeholder="Enter email" />
-                            <small className="form-text text-success">We'll never share your email with anyone else.</small>
+                            <small className="form-text text-primary">We'll never share your email with anyone else.</small>
                         </div>
                         <div className="form-group">
                             <label>Password</label>
                             <input onChange={onhandleChange("password")} value={password} type="password" className="form-control" placeholder="Password" />
                         </div>
-                        <button onClick={onSubmit} type="submit" className="btn btn-success">Submit</button>
+                        <button onClick={onSubmit} type="submit" className="btn btn-primary">Submit</button>
                     </div>
                 </div>
             </form>

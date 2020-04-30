@@ -38,9 +38,8 @@ const Menu = ({ history }) => {
                         )}
                     </ul>
                     <p className="d-none d-md-block lead mb-0 text-white">
-                        <img src="https://img.icons8.com/cotton/50/000000/t-shirt.png" />
-                            <b> Tshirt Store</b>
-                        </p>
+                        <img src="https://img.icons8.com/cotton/50/000000/t-shirt.png" /> <b>Tshirt Store</b>
+                    </p>
                     <ul className="navbar-nav ml-auto">
                         {!isAuthenticated() && (
                             <Fragment>
