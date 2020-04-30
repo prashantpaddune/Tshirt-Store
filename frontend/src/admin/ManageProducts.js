@@ -41,32 +41,37 @@ const ManageProducts = () => {
         <Base title="Manage Products" description="Manage products here" className="container bg-white p-4">
             <div className="row">
                 <div className="col-12">
-                    <h2 className="text-center my-3">Total products</h2>
+                    <table className="table table-bordered text-center">
+                        <thead>
+                        <tr>
+                            <th scope="col">All Products</th>
+                            <th scope="col">Update/Change</th>
+                            <th scope="col">Delete/Remove</th>
+                        </tr>
+                        </thead>
+                        <tbody>
 
-                    {products.map((product, index) => {
-                        return(
-                            <div key={index} className="row text-center mb-2 ">
-                                <div className="col-4">
-                                    <h3 className="text-left">{product.name}</h3>
-                                </div>
-                                <div className="col-4">
-                                    <Link
-                                        className="btn btn-success"
-                                        to={`/admin/product/update/${product._id}`}
-                                    >
-                                        <span className="">Update</span>
-                                    </Link>
-                                </div>
-                                <div className="col-4">
-                                    <button onClick={() => {
-                                        deleteMyProduct(product._id)
-                                    }} className="btn btn-danger">
-                                        Delete
-                                    </button>
-                                </div>
-                            </div>
-                        )
-                    })}
+                        {products.map((product, index) => {
+                            return(
+                                <tr>
+                                    <td>{product.name}</td>
+                                    <td>
+                                        <Link className="btn btn-success" to={`/admin/product/update/${product._id}`}>
+                                            <span className="">Update</span>
+                                        </Link>
+                                    </td>
+                                    <td>
+                                        <button onClick={() => {
+                                            deleteMyProduct(product._id)
+                                        }} className="btn btn-danger">
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            )})}
+                        </tbody>
+                    </table>
+                    <br/>
                     <Link className="btn btn-primary" to={`/admin/dashboard`}>
                         <span className="">Go back</span>
                     </Link>

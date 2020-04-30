@@ -29,7 +29,7 @@ const UpdateCategory = ({match}) => {
     const goBack = () => {
         return(
             <div className="mt-5">
-                <Link className="btn btn-sm btn-primary mb-3" to="/admin/dashboard" >
+                <Link className="btn btn-sm btn-primary mb-3" to="/admin/categories" >
                     Go back
                 </Link>
             </div>

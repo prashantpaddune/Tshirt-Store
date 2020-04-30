@@ -113,7 +113,7 @@ const UpdateProduct = ({match}) => {
     const goBack = () => {
         return(
             <div className="mt-5">
-                <Link className="btn btn-sm btn-info mb-3" to="/admin/dashboard" >
+                <Link className="btn btn-sm btn-info mb-3" to="/admin/products" >
                     Go back
                 </Link>
             </div>
@@ -184,7 +184,7 @@ const UpdateProduct = ({match}) => {
                 />
             </div>
 
-            <button type="submit" onClick={onSubmit} className="btn btn-outline-success">
+            <button type="submit" onClick={onSubmit} className="btn btn-outline-primary">
                 Update Product
             </button>
         </form>
