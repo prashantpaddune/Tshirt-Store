@@ -10,7 +10,7 @@ const AdminDashBoard = () => {
     const adminLeftSide = () => {
         return(
             <div className="card">
-                <h4 className="card-header bg-dark text-white text-center">
+                <h4 className="card-header   text-center">
                     Admin Navigation
                 </h4>
 
