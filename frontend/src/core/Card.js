@@ -3,6 +3,8 @@ import ImageHelper from "./helper/ImageHelper";
 import { Redirect } from "react-router-dom";
 import { addItemToCart, removeItemFromCart } from "./helper/cartHelper";
 
+import "../styles.css";
+
 const Card = ({
                   product,
                   addtoCart = true,
@@ -33,7 +35,7 @@ const Card = ({
             addtoCart && (
                 <button
                     onClick={addToCart}
-                    className="btn btn-block btn-outline-success mt-2 mb-2"
+                    className="btn btn-danger fa fa-shopping-cart"
                 >
                     Add to Cart
                 </button>
@@ -49,7 +51,7 @@ const Card = ({
                         removeItemFromCart(product._id);
                         setReload(!reload);
                     }}
-                    className="btn btn-block btn-outline-danger mt-2 mb-2"
+                    className="btn btn-success mt-2 mb-2"
                 >
                     Remove from cart
                 </button>
@@ -57,21 +59,26 @@ const Card = ({
         );
     };
     return (
-        <div className="card   border border-info text-center">
-            <div className="card-header lead">{cartTitle}</div>
-            <div className="card-body">
-                {getARedirect(redirect)}
+            <div className="card">
                 <ImageHelper product={product} />
-                <p className="lead bg-success font-weight-normal text-wrap">
-                    {cartDescrption}
-                </p>
-                <p className="btn btn-success rounded  btn-sm px-4">$ {cartPrice}</p>
-                <div className="row">
-                    <div className="col-12">{showAddToCart(addtoCart)}</div>
-                    <div className="col-12">{showRemoveFromCart(removeFromCart)}</div>
-                </div>
+                {getARedirect(redirect)}
+                    <div className="card-img-overlay d-flex justify-content-end">
+                        <a href="#" className="card-link text-danger like">
+                            <i className="fas fa-heart"/>
+                        </a>
+                    </div>
+                    <div className="card-body">
+                        <h2 className="card-title">{cartTitle}</h2>
+                        <p className="card-text">{cartDescrption}</p>
+                        <div className="buy d-flex justify-content-between align-items-center">
+                            <div className="price text-success"><h5 className="mt-4">${cartPrice}</h5></div>
+                            <div className="row">
+                                <div className="col-12"> {showAddToCart(addtoCart)}</div>
+                                <div className="col-12">{showRemoveFromCart(removeFromCart)}</div>
+                            </div>
+                        </div>
+                    </div>
             </div>
-        </div>
     );
 };
 
