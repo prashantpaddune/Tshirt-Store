@@ -67,7 +67,7 @@ const ManageProducts = () => {
                             </div>
                         )
                     })}
-                    <Link className="btn btn-info" to={`/admin/dashboard`}>
+                    <Link className="btn btn-primary" to={`/admin/dashboard`}>
                         <span className="">Go back</span>
                     </Link>
                 </div>

@@ -10,7 +10,7 @@ const AdminDashBoard = () => {
     const adminLeftSide = () => {
         return(
             <div className="row bootstrap snippets text-center">
-                <div className="col-md-3">
+                <div className="col-md-3 offset-1">
                     <div className="panel widget">
                         <div className="widget-body text-center">
                             <img alt="Profile Picture" className="widget-img img-circle img-border-light"

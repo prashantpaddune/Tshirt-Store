@@ -41,33 +41,37 @@ const ManageCategories = () => {
         <Base title="Manage Categories" description="Manage Categories here !" className="container bg-white p-4">
             <div className="row">
                 <div className="col-12">
-                    <h2 className="text-center my-3">Total Categories</h2>
+                    <table className="table table-bordered text-center">
+                        <thead>
+                        <tr>
+                            <th scope="col">Category Name</th>
+                            <th scope="col">Update/Change</th>
+                            <th scope="col">Delete/Remove</th>
+                        </tr>
+                        </thead>
+                        <tbody>
 
-                    {category.map((category, index) => {
-                        return(
-                            <div key={index} className="row text-center mb-2 ">
-                                <div className="col-4">
-                                    <h3 className="text-left">{category.name}</h3>
-                                </div>
-                                <div className="col-4">
-                                    <Link
-                                        className="btn btn-success"
-                                        to={`/admin/category/update/${category._id}`}
-                                    >
-                                        <span className="">Update</span>
-                                    </Link>
-                                </div>
-                                <div className="col-4">
-                                    <button onClick={() => {
-                                        deleteMyCategory(category._id)
-                                    }} className="btn btn-danger">
-                                        Delete
-                                    </button>
-                                </div>
-                            </div>
-                        )
-                    })}
-                    <Link className="btn btn-info" to={`/admin/dashboard`}>
+                        {category.map((category, index) => {
+                            return(
+                                <tr>
+                                    <td>{category.name}</td>
+                                    <td>
+                                        <Link className="btn btn-success" to={`/admin/category/update/${category._id}`}>
+                                        <span className="">Update</span></Link>
+                                    </td>
+                                    <td>
+                                        <button onClick={() => {
+                                            deleteMyCategory(category._id)
+                                        }} className="btn btn-danger">
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                                )})}
+                        </tbody>
+                    </table>
+                    <br/>
+                    <Link className="btn btn-primary" to={`/admin/dashboard`}>
                         <span className="">Go back</span>
                     </Link>
                 </div>
