@@ -13,6 +13,7 @@ const userRoute = require('./routes/user');
 const categoryRoute = require('./routes/category');
 const productRoute = require('./routes/product');
 const orderRoute = require('./routes/order');
+const stripeRoute = require('./routes/stripePayment');
 
 mongoose
     .connect('mongodb://localhost:27017/tshirts', { 
@@ -38,6 +39,7 @@ mongoose
     app.use('/api', categoryRoute);
     app.use('/api', productRoute);
     app.use('/api', orderRoute);
+    app.use('/api', stripeRoute);
 
 const port = process.env.PORT || 3000;
 
