@@ -14,7 +14,7 @@ const Cart = () => {
         setProducts(loadCart());
     }, [reload]);
 
-    const loadAllProducts = () => {
+    const loadAllProducts = (products) => {
         return (
             <div>
                 {products.map((product, index) => (
@@ -30,19 +30,12 @@ const Cart = () => {
             </div>
         );
     };
-    const loadCheckout = () => {
-        return (
-            <div>
-                <h2>This section for checkout</h2>
-            </div>
-        );
-    };
 
     return (
         <Base title="Cart Page" description="Ready to checkout">
             <div className="row">
-                <div className="col-6">{loadAllProducts()}</div>
-                <div className="col-6 text-center"><StripeCheckout
+                <div className="col-6">{products.length > 0 ? (loadAllProducts(products)) : (<h2> No Products Found</h2>)}</div>
+                    <div className="col-6 text-center"><StripeCheckout
                     products={products}
                     setReload={setReload}
                 /></div>
